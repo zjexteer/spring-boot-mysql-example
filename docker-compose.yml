@@ -1,0 +1,19 @@
+version: "2.1"
+services:
+  app:
+    image: myapp
+    build: .
+    restart: always
+    environment:
+      MYSQL_URL: mysql-db
+    ports:
+      - 8081:8080
+
+  mysql-db:
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: springboot_mysql_example
+    image: mysql
+    restart: always
+    ports:
+      - 3306:3306
