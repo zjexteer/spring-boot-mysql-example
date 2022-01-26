@@ -1,19 +1,20 @@
-version: "2.1"
+# creating myapp image setting mysql (url,rootpassword,nameofdatabase) using image mysql with condition restart in case of failiure exposing port 8080 for app and 3306 for mysqldb 
+version: "3"
 services:
   app:
-    image: myapp
+    image: myapp1
     build: .
     restart: always
     environment:
       MYSQL_URL: mysql-db
     ports:
-      - 8081:8080
+      - 8080:8080
 
   mysql-db:
     environment:
       MYSQL_ROOT_PASSWORD: root123
       MYSQL_DATABASE: springboot_mysql_example
-    image: mysql
+    image: mysql:5.7
     restart: always
     ports:
-      - 3306:3306
+      - 3306:3306 
