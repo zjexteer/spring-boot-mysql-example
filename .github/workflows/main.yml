@@ -23,11 +23,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it\
-      - name: run maven
-      - uses: actions/setup-java@v2
+    - name: run maven
+    - uses: actions/setup-java@v2
       with:
         java-version: '11'
-        distribution: 'adopt'
         cache: maven
 
     - name: Docker run mysql:5.7
