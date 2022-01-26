@@ -55,5 +55,6 @@ jobs:
           tags: v1, latest
           registry: docker.io
           dockerfile: Dockerfile
-          username: ${{  DOCKER_HUB_USERNAME }}
-          password: ${{  DOCKER_HUB_ACCESS_TOKEN   }}
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.OCKER_HUB_ACCESS_TOKEN  }}
+ 
