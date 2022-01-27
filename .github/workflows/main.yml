@@ -40,10 +40,11 @@ jobs:
     - name: Test
       run: mvn test
       env:
-        MYSQL_DATABASE: 'springboot_mysql_example'
         MYSQL_ROOT_PASSWORD: 'root123'
-        MYSQL_DB_PORT: '3306'
-        MYSQL_DB_DNAME: 'mysql-db'
+        MYSQL_DB_PORT: '3306'       
+        MYSQL_DB_HOST: 'localhost'
+        MYSQL_DB_DNAME: 'springboot_mysql_example'
+        
   
   build_docker:
     needs: build  
