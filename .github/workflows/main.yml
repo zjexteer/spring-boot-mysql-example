@@ -58,6 +58,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN  }}
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag myapp1:latest
       
       - name: Extract metadata (tags, labels) for Docker
         id: meta
@@ -72,3 +74,6 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          
+
+
