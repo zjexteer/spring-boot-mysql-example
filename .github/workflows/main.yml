@@ -59,21 +59,9 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN  }}
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag myapp1:latest
+        run: docker build . --file Dockerfile --tag mawlstace/myapp1:latest && docker push mawlstace/myapp1:lattest 
       
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
-        with:
-          images: my-docker-hub-namespace/my-docker-hub-repository
-      
-      - name: Build and push Docker image
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
-        with:
-          context: .
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+
           
 
 
