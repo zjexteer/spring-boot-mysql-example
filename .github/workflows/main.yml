@@ -40,7 +40,7 @@ jobs:
     - name: Test
       run: mvn test
       env:
-        MYSQL_DB_HOST: 'localhost'
+        MYSQL_DB_HOST: 'mysql-db'
         MYSQL_ROOT_PASSWORD: 'root123'
         MYSQL_DB_PORT: '3306'
         MYSQL_DB_DNAME: 'springboot_mysql_example'
