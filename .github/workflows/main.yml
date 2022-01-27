@@ -60,8 +60,3 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN  }}
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag mawlstace/myapp && docker push mawlstace/myapp
-      
-
-          
-
-
