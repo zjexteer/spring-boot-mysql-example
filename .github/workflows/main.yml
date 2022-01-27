@@ -58,8 +58,11 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           image: mawlstace/myapp1
+          registry: docker.io
           tags: v1, latest
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.OCKER_HUB_ACCESS_TOKEN  }}
- 
+     
+     
+
