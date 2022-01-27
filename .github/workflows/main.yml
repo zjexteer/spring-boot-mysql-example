@@ -43,6 +43,7 @@ jobs:
         MYSQL_ROOT_PASSWORD: 'root123'
         MYSQL_DB_PORT: '3306'
         MYSQL_DB_DNAME: 'springboot_mysql_example'
+        MYSQL_URL: 'mysql-db'
   
   build_docker:
     needs: build  
