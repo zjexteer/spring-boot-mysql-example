@@ -6,7 +6,7 @@ services:
     build: .
     restart: always
     environment:
-      MYSQL_URL: mysql-db
+      MYSQL_URL: localhost
     ports:
       - 8080:8080
 
