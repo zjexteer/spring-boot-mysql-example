@@ -4,3 +4,26 @@ create these two grapgh
 using this 
 rate (container_cpu_usage_seconds_total{container="app",  container!="POD"}[5m]) first one check the cpu usage of the pod through 5 mins 
 kube_pod_container_status_running{container="app"} ==1  second check if the container up and running 
+
+for alert manager 
+
+- name: pod-status
+    groups:
+      - name: pod not running 
+        rules:
+          - alert: microservice_status_alert
+            expr: kube_pod_container_status_running == 0
+            for: 2m
+            labels:
+              severity: critical
+ 
+ - name: pod-status
+    groups:
+      - name: pod cpu 
+        rules:
+          - alert: microservice_status_alert
+            expr: rate (container_cpu_usage_seconds_total{container="app",  container!="POD"}[5m])
+            for: 2m
+            labels:
+              severity: critical
+              
