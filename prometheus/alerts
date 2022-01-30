@@ -27,3 +27,13 @@ for alert manager
             labels:
               severity: critical
               
+#########################################################################################################################################
+Explained how to debug MySQL and Java apps in optimizing performance?
+
+looking inside the logs can gives us information 
+about the start , insert , delete , update and stop 
+but inserting all these logs can slow performance so we can keep the critical one in the production systems
+also the duration of operation and table structure can help in tuning performance 
+also looking for errors during running the of quries can be handful in troubleshooting and fixing the database performance
+setting the query cache can help in read performance as cache "its self means to save a copy of something run before"
+we also can montior user session opened so if its exceed number of open session we can block the account in doing any operation 
