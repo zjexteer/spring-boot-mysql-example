@@ -20,7 +20,7 @@ spec:
       - env:
         - name: MYSQL_URL
           value: mysql-db
-        image: mawlstace/myapp
+        image: mawlstace/test123
         imagePullPolicy: ""
         name: app
         ports:
