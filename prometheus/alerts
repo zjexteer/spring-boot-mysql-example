@@ -1,0 +1,6 @@
+i installed prometheus through helm 
+then i portforward on 9090 on prometheus pod 
+create these two grapgh 
+using this 
+rate (container_cpu_usage_seconds_total{container="app",  container!="POD"}[5m]) first one check the cpu usage of the pod through 5 mins 
+kube_pod_container_status_running{container="app"} ==1  second check if the container up and running 
