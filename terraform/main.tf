@@ -64,26 +64,28 @@ resource "aws_security_group" "main" {
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
-
+}
 resource "aws_instance" "ec2" {
   instance_type = "t2.medium"
   ami = "ami-0ee02acd56a52998e"
   vpc_security_group_ids=[aws_security_group.main.id]
   subnet_id=aws_subnet.public.id
-  volume_size= 20
+
   key_name="my_key"
   availability_zone ="us-east-1a"
+    ebs_block_device {
+    device_name = "/dev/sda1"
+    volume_size = 20
+  }
 }
-# attaching the aws volume 
-resource "aws_volume_attachment" "ebs_attachment" {
-  device_name = "/dev/sdh"
-  volume_id   = aws_ebs_volume.example.id
-  instance_id = aws_instance.ec2.id
-}
+
+
+
 resource "aws_ebs_volume" "ec2-disk" {
   availability_zone = "us-east-1a"
   size            = 100
 }
+
 #elastic_ip
 resource "aws_eip" "myeip" {
 instance = aws_instance.ec2.id
